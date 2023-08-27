@@ -1,0 +1,13 @@
+{
+  "item.better_snowball.snowball_compression": "雪球(混合)",
+  "item.better_snowball.snowball_confusion": "雪球(混乱)",
+  "item.better_snowball.snowball_diamond": "雪球(钻石)",
+  "item.better_snowball.snowball_gold": "雪球(金)",
+  "item.better_snowball.snowball_ice": "雪球(冰)",
+  "item.better_snowball.snowball_instant_health": "雪球(瞬间治疗)",
+  "item.better_snowball.snowball_iron": "雪球(铁)",
+  "item.better_snowball.snowball_poison": "雪球(毒)",
+  "item.better_snowball.snowball_stone": "雪球(石)",
+  "item.better_snowball.snowball_teleporting": "雪球(瞬移)",
+  "itemGroup.better_snowball.better_snowball_group": "更好的雪球"
+}
