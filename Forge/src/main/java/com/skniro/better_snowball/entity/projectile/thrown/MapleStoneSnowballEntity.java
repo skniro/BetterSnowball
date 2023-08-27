@@ -1,6 +1,6 @@
 package com.skniro.better_snowball.entity.projectile.thrown;
 
-,import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.projectile.Snowball;
