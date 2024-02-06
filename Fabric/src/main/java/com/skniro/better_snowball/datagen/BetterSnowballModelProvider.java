@@ -19,7 +19,7 @@ public class BetterSnowballModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(BetterSnowballItems.SNOWBALL_STONE, Items.SNOWBALL, Models.GENERATED);
+/*        itemModelGenerator.register(BetterSnowballItems.SNOWBALL_STONE, Items.SNOWBALL, Models.GENERATED);
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Diamond, Items.SNOWBALL, Models.GENERATED);
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Gold, Items.SNOWBALL, Models.GENERATED);
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_ICE, Items.SNOWBALL, Models.GENERATED);
@@ -28,6 +28,6 @@ public class BetterSnowballModelProvider extends FabricModelProvider {
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Teleporting, Items.SNOWBALL, Models.GENERATED);
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Confusion, Items.SNOWBALL, Models.GENERATED);
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Instant_Health, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Poison, Items.SNOWBALL, Models.GENERATED);
+        itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Poison, Items.SNOWBALL, Models.GENERATED);*/
     }
 }
