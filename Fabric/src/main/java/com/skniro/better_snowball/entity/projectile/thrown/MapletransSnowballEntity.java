@@ -13,6 +13,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
+import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -56,12 +57,12 @@ public class MapletransSnowballEntity extends MapleSnowballEntity {
     }
 
     @Nullable
-    public Entity moveToWorld(ServerWorld destination) {
+    public Entity teleportTo(TeleportTarget teleportTarget) {
         Entity entity = this.getOwner();
-        if (entity != null && entity.getWorld().getRegistryKey() != destination.getRegistryKey()) {
+        if (entity != null && entity.getWorld().getRegistryKey() != teleportTarget.world().getRegistryKey()) {
             this.setOwner((Entity)null);
         }
 
-        return super.moveToWorld(destination);
+        return super.teleportTo(teleportTarget);
     }
 }

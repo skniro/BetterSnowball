@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +26,7 @@ public class MaplePoisonSnowballEntity extends Snowball {
         Entity entity = entityHitResult.getEntity();
         int i = entity instanceof Blaze ? 4 : 0;
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), i);
-        Player playerEntity = (Player) entityHitResult.getEntity();;
-        playerEntity.addEffect(new MobEffectInstance(MobEffects.POISON,30,1));
+        LivingEntity playerEntity = (LivingEntity) entityHitResult.getEntity();
+        playerEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 30, 1));
     }
 }

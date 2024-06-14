@@ -4,14 +4,18 @@ import com.skniro.better_snowball.BetterSnowball;
 import com.skniro.better_snowball.item.BetterSnowballItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.data.DataWriter;
+import net.minecraft.registry.RegistryWrapper;
+
+import java.util.concurrent.CompletableFuture;
 
 public class BetterSnowballEnglishLanguageProvider extends FabricLanguageProvider {
-    public BetterSnowballEnglishLanguageProvider(FabricDataOutput dataGenerator){
-        super(dataGenerator,"en_us");
-    }
+    public BetterSnowballEnglishLanguageProvider(FabricDataOutput dataGenerator, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup){
+        super(dataGenerator,"en_us", registryLookup);
+        }
 
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(BetterSnowballItems.SNOWBALL_STONE, "Snowball(Stone)");
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Diamond, "Snowball(Diamond)");
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Gold, "Snowball(Gold)");
@@ -23,5 +27,14 @@ public class BetterSnowballEnglishLanguageProvider extends FabricLanguageProvide
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Instant_Health, "Snowball(InstantHealth)");
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Poison, "Snowball(Poison)");
         translationBuilder.add(BetterSnowball.Better_Snowball_Group, "Better Snowball");
+    }
+
+
+    public CompletableFuture<?> run(DataWriter writer) {
+        return null;
+    }
+
+    public String getName() {
+        return "";
     }
 }

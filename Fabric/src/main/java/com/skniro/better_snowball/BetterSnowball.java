@@ -20,7 +20,7 @@ public class BetterSnowball implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 
-    public static final RegistryKey<ItemGroup> Better_Snowball_Group = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, "better_snowball_group"));
+    public static final RegistryKey<ItemGroup> Better_Snowball_Group = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(MOD_ID, "better_snowball_group"));
 
     @Override
     public void onInitialize() {

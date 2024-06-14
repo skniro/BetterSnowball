@@ -29,7 +29,7 @@
     "better_snowball.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.9",
-    "minecraft": "1.20.X"
+    "fabricloader": ">=0.15.11",
+    "minecraft": "1.21.X"
   }
 }

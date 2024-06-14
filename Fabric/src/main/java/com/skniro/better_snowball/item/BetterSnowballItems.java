@@ -20,7 +20,7 @@ public class BetterSnowballItems {
     public static final Item SNOWBALL_Instant_Health = registerItem("snowball_instant_health", new InstantHealthSnowballItem(new Item.Settings().maxCount(64)));
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(BetterSnowball.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, Identifier.of(BetterSnowball.MOD_ID, name), item);
     }
 
     public static void registerModItems() {

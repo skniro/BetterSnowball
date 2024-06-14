@@ -10,6 +10,5 @@ public class BetterSnowballDataGeneration implements DataGeneratorEntrypoint {
         pack.addProvider(BetterSnowballModelProvider::new);
         pack.addProvider(BetterSnowballSimplifiedChineseLanguageProvider::new);
         pack.addProvider(BetterSnowballEnglishLanguageProvider::new);
-        pack.addProvider(BetterSnowballRecipeGeneration::new);
     }
 }
