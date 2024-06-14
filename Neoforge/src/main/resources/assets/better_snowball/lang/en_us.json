@@ -1,0 +1,13 @@
+{
+  "item.better_snowball.snowball_compression": "Snowball(Compression)",
+  "item.better_snowball.snowball_confusion": "Snowball(Confusion)",
+  "item.better_snowball.snowball_diamond": "Snowball(Diamond)",
+  "item.better_snowball.snowball_gold": "Snowball(Gold)",
+  "item.better_snowball.snowball_ice": "Snowball(Ice)",
+  "item.better_snowball.snowball_instant_health": "Snowball(InstantHealth)",
+  "item.better_snowball.snowball_iron": "Snowball(Iron)",
+  "item.better_snowball.snowball_poison": "Snowball(Poison)",
+  "item.better_snowball.snowball_stone": "Snowball(Stone)",
+  "item.better_snowball.snowball_teleporting": "Snowball(Teleporting)",
+  "itemGroup.better_snowball.better_snowball_group": "Better Snowball"
+}
