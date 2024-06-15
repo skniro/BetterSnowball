@@ -5,15 +5,16 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BetterSnowball.MODID);
 
-    public static final RegistryObject<CreativeModeTab> Growable_Ores_Group = CREATIVE_MODE_TABS.register("better_snowball_group",
+    public static final Supplier<CreativeModeTab> Growable_Ores_Group = CREATIVE_MODE_TABS.register("better_snowball_group",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(BetterSnowballItems.SNOWBALL_STONE.get()))
                     .title(Component.translatable("itemGroup.better_snowball.better_snowball_group"))
                     .displayItems((pParameters, pOutput) -> {

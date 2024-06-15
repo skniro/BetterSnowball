@@ -14,7 +14,7 @@
         }
     },
     "result": {
-        "item": "better_snowball:snowball_confusion",
+        "id": "better_snowball:snowball_confusion",
         "count": 32
     }
 }

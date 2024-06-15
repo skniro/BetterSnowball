@@ -14,7 +14,7 @@ loaderVersion="${loader_version_range}" #mandatory
 license="${mod_license}"
 
 [[mixins]]
-config="growable_ores.mixins.json"
+config="better_snowball.mixins.json"
 
 # A URL to refer people to when problems occur with this mod
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
@@ -23,15 +23,13 @@ config="growable_ores.mixins.json"
 [[mods]] #mandatory
 
 # The modid of the mod
-modId="growable_ores" #mandatory
+modId="better_snowball" #mandatory
 
 # The version number of the mod
 version="${project.mod_version}" #mandatory
 
 # A display name for the mod
 displayName="${project.mod_name}" #mandatory
-
-credits = "Rafan,gilnet,All translators"
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
@@ -71,7 +69,7 @@ description='''${project.mod_description}'''
 # The coremods config file path is not configurable and is always loaded from META-INF/coremods.json
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.growable_ores]] #optional
+[[dependencies.better_snowball]] #optional
 # the modid of the dependency
 modId="neoforge" #mandatory
 # The type of the dependency. Can be one of "required", "optional", "incompatible" or "discouraged" (case insensitive).
@@ -90,7 +88,7 @@ ordering="NONE"
 side="BOTH"
 
 # Here's another dependency
-[[dependencies.growable_ores]]
+[[dependencies.better_snowball]]
 modId="minecraft"
 type="required"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version

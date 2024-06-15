@@ -7,20 +7,6 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-    maven {
-        url "https://maven.minecraftforge.net/"
-    }
-
-    maven {
-        url = "https://jitpack.io"
-    }
-
-    maven {
-        // location of the maven that hosts JEI files before January 2023
-        name = "Progwml6's maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-
     // Add repositories to retrieve artifacts from in here.
     // You should only use this when depending on other mods because
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.

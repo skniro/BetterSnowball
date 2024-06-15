@@ -2,42 +2,42 @@ package com.skniro.better_snowball.item;
 
 import com.skniro.better_snowball.BetterSnowball;
 import com.skniro.better_snowball.item.init.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
 public class BetterSnowballItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BetterSnowball.MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, BetterSnowball.MODID);
 
     //Snowball
-    public static final RegistryObject<Item> SNOWBALL_STONE = registerItem("snowball_stone",
+    public static final Supplier<Item> SNOWBALL_STONE = registerItem("snowball_stone",
             () -> new StoneSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_ICE = registerItem("snowball_ice",
+    public static final Supplier<Item> SNOWBALL_ICE = registerItem("snowball_ice",
             () -> new IceSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_IRON = registerItem("snowball_iron",
+    public static final Supplier<Item> SNOWBALL_IRON = registerItem("snowball_iron",
             () -> new IronSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_Gold = registerItem("snowball_gold",
+    public static final Supplier<Item> SNOWBALL_Gold = registerItem("snowball_gold",
             () -> new GoldSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_Diamond = registerItem("snowball_diamond",
+    public static final Supplier<Item> SNOWBALL_Diamond = registerItem("snowball_diamond",
             () -> new DiamondSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_Compression = registerItem("snowball_compression",
+    public static final Supplier<Item> SNOWBALL_Compression = registerItem("snowball_compression",
             () -> new StoneSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_Teleporting = registerItem("snowball_teleporting",
+    public static final Supplier<Item> SNOWBALL_Teleporting = registerItem("snowball_teleporting",
             () -> new TeleportingSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_Confusion = registerItem("snowball_confusion",
+    public static final Supplier<Item> SNOWBALL_Confusion = registerItem("snowball_confusion",
             () -> new ConfusionSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_Poison = registerItem("snowball_poison",
+    public static final Supplier<Item> SNOWBALL_Poison = registerItem("snowball_poison",
             () -> new PoisonSnowballItem(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> SNOWBALL_Instant_Health = registerItem("snowball_instant_health",
+    public static final Supplier<Item> SNOWBALL_Instant_Health = registerItem("snowball_instant_health",
             () -> new InstantHealthSnowballItem(new Item.Properties().stacksTo(64)));
 
 
-    private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {
-        RegistryObject<T> toReturn = ITEMS.register(name, item);
+    private static <T extends Item> DeferredHolder<Item,T> registerItem(String name, Supplier<T> item) {
+        DeferredHolder<Item,T> toReturn = ITEMS.register(name, item);
         return toReturn;
     }
 
