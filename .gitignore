@@ -119,3 +119,5 @@ run/
 /src/main/generated/.cache/
 /Forge/run_client/
 /Neoforge/runs/client/saves/New World/session.lock
+/Neoforge/runs/
+/Neoforge/run_client/
