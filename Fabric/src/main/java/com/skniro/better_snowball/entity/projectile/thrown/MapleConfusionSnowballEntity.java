@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
@@ -14,8 +15,8 @@ import java.util.Set;
 
 public class MapleConfusionSnowballEntity extends MapleSnowballEntity {
     private final Set<StatusEffectInstance> effects = Sets.newHashSet();
-    public MapleConfusionSnowballEntity(World world, LivingEntity owner) {
-        super(world, owner);
+    public MapleConfusionSnowballEntity(World world, LivingEntity owner, ItemStack stack) {
+        super(world, owner, stack);
     }
 
     @Override
@@ -23,7 +24,7 @@ public class MapleConfusionSnowballEntity extends MapleSnowballEntity {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         int i = entity instanceof BlazeEntity ? 4 : 0;
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), i);
+        entity.serverDamage(this.getDamageSources().thrown(this, this.getOwner()), i);
         LivingEntity playerEntity = (LivingEntity) entityHitResult.getEntity();;
         playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA,150,1));
     }

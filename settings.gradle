@@ -23,4 +23,5 @@ pluginManagement {
 }
 
 rootProject.name = 'Better_Snowball-1.21'
-include("Fabric", "Forge", "Neoforge")
+//include("Fabric", "Forge", "Neoforge")
+include("Fabric")
