@@ -1,17 +1,15 @@
 package com.skniro.better_snowball.entity.projectile.thrown;
 
-
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Blaze;
-import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
-public class MapleDiamondSnowballEntity extends Snowball {
-    public MapleDiamondSnowballEntity(Level world, LivingEntity owner, ItemStack itemStack) {
-        super(world, owner, itemStack);
+public class MapleDiamondSnowballEntity extends MapleSnowballEntity {
+    public MapleDiamondSnowballEntity(Level world, LivingEntity owner, ItemStack stack) {
+        super(world, owner, stack);
     }
 
     @Override

@@ -1,24 +1,20 @@
 package com.skniro.better_snowball.entity.projectile.thrown;
 
 import com.google.common.collect.Sets;
+import java.util.Set;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Blaze;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
-
-import java.util.Set;
-
-public class MapleInstantHealthSnowballEntity extends Snowball {
+public class MapleConfusionSnowballEntity extends MapleSnowballEntity {
     private final Set<MobEffectInstance> effects = Sets.newHashSet();
-    public MapleInstantHealthSnowballEntity(Level world, LivingEntity owner, ItemStack itemStack) {
-        super(world, owner, itemStack);
+    public MapleConfusionSnowballEntity(Level world, LivingEntity owner, ItemStack stack) {
+        super(world, owner, stack);
     }
 
     @Override
@@ -28,6 +24,6 @@ public class MapleInstantHealthSnowballEntity extends Snowball {
         int i = entity instanceof Blaze ? 4 : 0;
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), i);
         LivingEntity playerEntity = (LivingEntity) entityHitResult.getEntity();;
-        playerEntity.addEffect(new MobEffectInstance(MobEffects.HEAL,1));
+        playerEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION,150,1));
     }
 }
