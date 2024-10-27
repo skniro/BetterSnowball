@@ -6,12 +6,8 @@
         "###"
     ],
     "key": {
-        "#": {
-            "item": "minecraft:snow_block"
-        },
-        "G": {
-            "item": "minecraft:red_mushroom"
-        }
+        "#": "minecraft:snow_block",
+        "G": "minecraft:red_mushroom"
     },
     "result": {
         "id": "better_snowball:snowball_confusion",
