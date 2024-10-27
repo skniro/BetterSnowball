@@ -22,8 +22,8 @@ public class BetterSnowball {
     private static final Logger LOGGER = LogUtils.getLogger();
 
 
-    public BetterSnowball() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public BetterSnowball(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

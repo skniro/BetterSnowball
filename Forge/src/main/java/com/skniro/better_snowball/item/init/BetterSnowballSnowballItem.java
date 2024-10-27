@@ -1,37 +1,64 @@
 package com.skniro.better_snowball.item.init;
 
+import com.skniro.better_snowball.entity.projectile.thrown.*;
+import com.skniro.better_snowball.item.BetterSnowballItems;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Position;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
 
-
 public class BetterSnowballSnowballItem
-        extends Item {
-    public BetterSnowballSnowballItem(Item.Properties settings) {
+        extends Item implements ProjectileItem {
+    public BetterSnowballSnowballItem(Properties settings) {
         super(settings);
     }
 
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+    public InteractionResult use(Level world, Player user, InteractionHand hand) {
         ItemStack itemStack = user.getItemInHand(hand);
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
-        if (!world.isClientSide) {
-            Snowball snowballEntity = new Snowball(world, user);
-            snowballEntity.setItem(itemStack);
-            snowballEntity.shootFromRotation(user, user.getXRot(), user.getYRot(), 0.0f, 1.5f, 1.0f);
-            world.addFreshEntity(snowballEntity);
+        world.playSound((Player)null, user.getX(), user.getY(), user.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+        if (world instanceof ServerLevel serverWorld) {
+            if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_STONE.get()) {
+                Projectile.spawnProjectileFromRotation(MapleStoneSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_ICE.get()) {
+                Projectile.spawnProjectileFromRotation(MapleStoneSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_IRON.get()) {
+                Projectile.spawnProjectileFromRotation(MapleIronSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Gold.get()) {
+                Projectile.spawnProjectileFromRotation(MapleGoldSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Diamond.get()) {
+                Projectile.spawnProjectileFromRotation(MapleDiamondSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Compression.get()) {
+                Projectile.spawnProjectileFromRotation(MapleStoneSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Teleporting.get()) {
+                Projectile.spawnProjectileFromRotation(MapletransSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Confusion.get()) {
+                Projectile.spawnProjectileFromRotation(MapleConfusionSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Poison.get()) {
+                Projectile.spawnProjectileFromRotation(MaplePoisonSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Instant_Health.get()) {
+                Projectile.spawnProjectileFromRotation(MapleInstantHealthSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            } else {
+                Projectile.spawnProjectileFromRotation(Snowball::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            }
         }
+
         user.awardStat(Stats.ITEM_USED.get(this));
-        if (!user.getAbilities().instabuild) {
-            itemStack.shrink(1);
-        }
-        return InteractionResultHolder.sidedSuccess(itemStack, world.isClientSide());
+        itemStack.consume(1, user);
+        return InteractionResult.SUCCESS;
+    }
+
+    public Projectile asProjectile(Level world, Position pos, ItemStack stack, Direction direction) {
+        return new Snowball(world, pos.x(), pos.y(), pos.z(), stack);
     }
 }

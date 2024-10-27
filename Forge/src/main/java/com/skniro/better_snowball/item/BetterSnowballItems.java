@@ -2,12 +2,16 @@ package com.skniro.better_snowball.item;
 
 import com.skniro.better_snowball.BetterSnowball;
 import com.skniro.better_snowball.item.init.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class BetterSnowballItems {
@@ -15,29 +19,35 @@ public class BetterSnowballItems {
 
     //Snowball
     public static final RegistryObject<Item> SNOWBALL_STONE = registerItem("snowball_stone",
-            () -> new StoneSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_ICE = registerItem("snowball_ice",
-            () -> new IceSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_IRON = registerItem("snowball_iron",
-            () -> new IronSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Gold = registerItem("snowball_gold",
-            () -> new GoldSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Diamond = registerItem("snowball_diamond",
-            () -> new DiamondSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Compression = registerItem("snowball_compression",
-            () -> new StoneSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Teleporting = registerItem("snowball_teleporting",
-            () -> new TeleportingSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Confusion = registerItem("snowball_confusion",
-            () -> new ConfusionSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Poison = registerItem("snowball_poison",
-            () -> new PoisonSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Instant_Health = registerItem("snowball_instant_health",
-            () -> new InstantHealthSnowballItem(new Item.Properties().stacksTo(64)));
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
 
 
-    private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {
-        RegistryObject<T> toReturn = ITEMS.register(name, item);
+    public static <B extends Item> RegistryObject<Item> register(String name, Function<Item.Properties, ? extends B> func, Item.Properties props) {
+        return ITEMS.register(name, () -> {
+            return (Item)func.apply(props.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BetterSnowball.MODID, name))));
+        });
+    }
+
+    private static <T extends Item> RegistryObject<Item> registerItem(String name, Function<Item.Properties, ? extends T> item, Item.Properties properties) {
+        RegistryObject<Item> toReturn = register(name, item, properties.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BetterSnowball.MODID, name))));
         return toReturn;
     }
 
