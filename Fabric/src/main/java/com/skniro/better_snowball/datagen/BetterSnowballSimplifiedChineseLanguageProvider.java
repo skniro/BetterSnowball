@@ -22,6 +22,7 @@ public class BetterSnowballSimplifiedChineseLanguageProvider extends FabricLangu
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Confusion, "雪球(混乱)");
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Instant_Health, "雪球(瞬间治疗)");
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Poison, "雪球(毒)");
+        translationBuilder.add(BetterSnowballItems.SNOWBALL_Hostility, "雪球(恶意)");
         translationBuilder.add(BetterSnowball.Better_Snowball_Group, "更好的雪球");
     }
 }

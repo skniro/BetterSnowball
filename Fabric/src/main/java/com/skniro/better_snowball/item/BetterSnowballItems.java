@@ -1,6 +1,7 @@
 package com.skniro.better_snowball.item;
 
 import com.skniro.better_snowball.BetterSnowball;
+import com.skniro.better_snowball.entity.projectile.thrown.BetterSnowballHostilitySnowballEntity;
 import com.skniro.better_snowball.item.init.*;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -18,6 +19,7 @@ public class BetterSnowballItems {
     public static final Item SNOWBALL_Confusion = registerItem("snowball_confusion", new ConfusionSnowballItem(new Item.Settings().maxCount(64)));
     public static final Item SNOWBALL_Poison = registerItem("snowball_poison", new PoisonSnowballItem(new Item.Settings().maxCount(64)));
     public static final Item SNOWBALL_Instant_Health = registerItem("snowball_instant_health", new InstantHealthSnowballItem(new Item.Settings().maxCount(64)));
+    public static final Item SNOWBALL_Hostility = registerItem("snowball_hostility", new HostilitySnowballItem(new Item.Settings().maxCount(64)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BetterSnowball.MOD_ID, name), item);

@@ -29,5 +29,6 @@ public class BetterSnowballModelProvider extends FabricModelProvider {
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Confusion, Items.SNOWBALL, Models.GENERATED);
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Instant_Health, Items.SNOWBALL, Models.GENERATED);
         itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Poison, Items.SNOWBALL, Models.GENERATED);
+        itemModelGenerator.register(BetterSnowballItems.SNOWBALL_Hostility, Items.SNOWBALL, Models.GENERATED);
     }
 }
