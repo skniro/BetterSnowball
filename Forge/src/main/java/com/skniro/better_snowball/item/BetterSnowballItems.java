@@ -34,6 +34,8 @@ public class BetterSnowballItems {
             () -> new PoisonSnowballItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> SNOWBALL_Instant_Health = registerItem("snowball_instant_health",
             () -> new InstantHealthSnowballItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SNOWBALL_Hostility = registerItem("snowball_hostility",
+            () -> new HostilitySnowballItem(new Item.Properties().stacksTo(64)));
 
 
     private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {

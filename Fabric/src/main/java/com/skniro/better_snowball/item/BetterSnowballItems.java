@@ -18,6 +18,7 @@ public class BetterSnowballItems {
     public static final Item SNOWBALL_Confusion = registerItem("snowball_confusion", new ConfusionSnowballItem(new Item.Settings().maxCount(64)));
     public static final Item SNOWBALL_Poison = registerItem("snowball_poison", new PoisonSnowballItem(new Item.Settings().maxCount(64)));
     public static final Item SNOWBALL_Instant_Health = registerItem("snowball_instant_health", new InstantHealthSnowballItem(new Item.Settings().maxCount(64)));
+    public static final Item SNOWBALL_Hostility = registerItem("snowball_hostility", new HostilitySnowballItem(new Item.Settings().maxCount(64)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BetterSnowball.MOD_ID, name), item);

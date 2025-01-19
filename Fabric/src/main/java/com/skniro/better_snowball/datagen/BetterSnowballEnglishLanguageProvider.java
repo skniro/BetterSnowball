@@ -26,15 +26,7 @@ public class BetterSnowballEnglishLanguageProvider extends FabricLanguageProvide
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Confusion, "Snowball(Confusion)");
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Instant_Health, "Snowball(InstantHealth)");
         translationBuilder.add(BetterSnowballItems.SNOWBALL_Poison, "Snowball(Poison)");
+        translationBuilder.add(BetterSnowballItems.SNOWBALL_Hostility, "Snowball(Hostility)");
         translationBuilder.add(BetterSnowball.Better_Snowball_Group, "Better Snowball");
-    }
-
-
-    public CompletableFuture<?> run(DataWriter writer) {
-        return null;
-    }
-
-    public String getName() {
-        return "";
     }
 }

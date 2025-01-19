@@ -28,6 +28,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(BetterSnowballItems.SNOWBALL_Confusion.get());
                         pOutput.accept(BetterSnowballItems.SNOWBALL_Instant_Health.get());
                         pOutput.accept(BetterSnowballItems.SNOWBALL_Poison.get());
+                        pOutput.accept(BetterSnowballItems.SNOWBALL_Hostility.get());
                     })
                     .build());
 

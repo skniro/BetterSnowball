@@ -22,6 +22,7 @@ public class BetterSnowballContent {
             content.add(BetterSnowballItems.SNOWBALL_Confusion);
             content.add(BetterSnowballItems.SNOWBALL_Instant_Health);
             content.add(BetterSnowballItems.SNOWBALL_Poison);
+            content.add(BetterSnowballItems.SNOWBALL_Hostility);
         });
 
 
