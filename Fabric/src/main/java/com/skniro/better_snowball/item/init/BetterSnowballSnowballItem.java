@@ -47,7 +47,9 @@ public class BetterSnowballSnowballItem
                 ProjectileEntity.spawnWithVelocity(MaplePoisonSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
             } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Instant_Health) {
                 ProjectileEntity.spawnWithVelocity(MapleInstantHealthSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
-            } else {
+            } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Hostility) {
+                ProjectileEntity.spawnWithVelocity(BetterSnowballHostilitySnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            }else {
                 ProjectileEntity.spawnWithVelocity(MapleSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
             }
         }

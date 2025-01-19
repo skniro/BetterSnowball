@@ -26,6 +26,7 @@ public class BetterSnowballItems {
     public static final Item SNOWBALL_Confusion = registerItem("snowball_confusion", BetterSnowballSnowballItem::new, new Item.Settings().maxCount(64));
     public static final Item SNOWBALL_Poison = registerItem("snowball_poison", BetterSnowballSnowballItem::new, new Item.Settings().maxCount(64));
     public static final Item SNOWBALL_Instant_Health = registerItem("snowball_instant_health", BetterSnowballSnowballItem::new, new Item.Settings().maxCount(64));
+    public static final Item SNOWBALL_Hostility = registerItem("snowball_hostility", BetterSnowballSnowballItem::new, new Item.Settings().maxCount(64));
 
     private static Item registerItem(String name,Function<Item.Settings, Item> factory, Item.Settings settings) {
         Item item = (Item)factory.apply(settings.registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(BetterSnowball.MOD_ID, name))));

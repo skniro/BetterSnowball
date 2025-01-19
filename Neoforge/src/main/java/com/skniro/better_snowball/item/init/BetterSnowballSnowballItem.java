@@ -48,6 +48,8 @@ public class BetterSnowballSnowballItem
                 Projectile.spawnProjectileFromRotation(MaplePoisonSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
             } else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Instant_Health.get()) {
                 Projectile.spawnProjectileFromRotation(MapleInstantHealthSnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
+            }else if (itemStack.getItem() == BetterSnowballItems.SNOWBALL_Hostility.get()) {
+                Projectile.spawnProjectileFromRotation(BetterSnowballHostilitySnowballEntity::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
             } else {
                 Projectile.spawnProjectileFromRotation(Snowball::new, serverWorld, itemStack, user, 0.0F, 1.5F, 1.0F);
             }

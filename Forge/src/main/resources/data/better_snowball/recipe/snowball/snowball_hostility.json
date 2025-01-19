@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#G#",
+        "###"
+    ],
+    "key": {
+        "#": "minecraft:snow_block",
+        "G": "minecraft:gunpowder"
+    },
+    "result": {
+        "id": "better_snowball:snowball_hostility",
+        "count": 32
+    }
+}

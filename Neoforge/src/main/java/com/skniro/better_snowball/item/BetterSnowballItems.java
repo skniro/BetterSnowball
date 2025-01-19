@@ -42,6 +42,8 @@ public class BetterSnowballItems {
             BetterSnowballSnowballItem::new, (new Item.Properties().stacksTo(64)));
     public static final Supplier<Item> SNOWBALL_Instant_Health = registerItem("snowball_instant_health",
             BetterSnowballSnowballItem::new, (new Item.Properties().stacksTo(64)));
+    public static final Supplier<Item> SNOWBALL_Hostility = registerItem("snowball_hostility",
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
 
 
     private static <T extends Item> DeferredItem<T> registerItem(String name, Function<Item.Properties, ? extends T> item, Item.Properties properties) {

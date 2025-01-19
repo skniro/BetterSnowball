@@ -38,6 +38,8 @@ public class BetterSnowballItems {
             BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
     public static final RegistryObject<Item> SNOWBALL_Instant_Health = registerItem("snowball_instant_health",
             BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
+    public static final RegistryObject<Item> SNOWBALL_Hostility = registerItem("snowball_hostility",
+            BetterSnowballSnowballItem::new, new Item.Properties().stacksTo(64));
 
 
     public static <B extends Item> RegistryObject<Item> register(String name, Function<Item.Properties, ? extends B> func, Item.Properties props) {
