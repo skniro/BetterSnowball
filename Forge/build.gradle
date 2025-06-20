@@ -40,28 +40,49 @@ minecraft {
     }
 
     runs {
-        client {
-            taskName 'Client'
-            workingDirectory project.file('run_client')
-            property 'forge.enabledGameTestNamespaces', mod_id
+        configureEach {
+            workingDirectory project.file('run')
+            property 'eventbus.api.strictRuntimeChecks', 'true'
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                "${project.mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        client {
+            taskName 'Client'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {
             taskName 'Server'
-            workingDirectory project.file('run_server')
-            property 'forge.enabledGameTestNamespaces', mod_id
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
         }
 
-        //data {
-        //    workingDirectory project.file('run-data')
-        //    args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-        //}
+        gameTestServer {
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.enabledGameTestNamespaces', mod_id
+        }
 
+        data {
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            workingDirectory project.file('run-data')
+            //args '--mod', better_snowball, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+        }
     }
 
 }
@@ -90,6 +111,7 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     testAnnotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    annotationProcessor 'net.minecraftforge:eventbus-validator:7.0-beta.8'
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
 }
