@@ -12,9 +12,6 @@
   "icon": "assets/better_snowball/icon.png",
   "environment": "*",
   "entrypoints": {
-    "terrablender": [
-      "com.skniro.better_snowball.BetterSnowball"
-    ],
     "client": [
       "com.skniro.better_snowball.client.BetterSnowballClient"
     ],
