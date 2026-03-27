@@ -1,40 +1,39 @@
 package com.skniro.better_snowball.entity.projectile.thrown;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.BlazeEntity;
-import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.world.World;
-
 import java.util.List;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.monster.Blaze;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
 
 public class BetterSnowballHostilitySnowballEntity extends MapleSnowballEntity {
-    private final World world;
+    private final Level world;
 
-    public BetterSnowballHostilitySnowballEntity(World world, LivingEntity owner, ItemStack stack) {
+    public BetterSnowballHostilitySnowballEntity(Level world, LivingEntity owner, ItemStack stack) {
         super(world, owner, stack);
         this.world = world;
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+        super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
-        entity.serverDamage(this.getDamageSources().thrown(this, this.getOwner()), i);
+        int i = entity instanceof Blaze ? 3 : 0;
+        entity.hurt(this.damageSources().thrown(this, this.getOwner()), i);
         if (entity instanceof LivingEntity livingEntity) {
-            if (livingEntity instanceof MobEntity mobEntity) {
-                List<Entity> nearbyEntities = world.getOtherEntities(
+            if (livingEntity instanceof Mob mobEntity) {
+                List<Entity> nearbyEntities = world.getEntities(
                     mobEntity,
-                    mobEntity.getBoundingBox().expand(5.0),
+                    mobEntity.getBoundingBox().inflate(5.0),
                     e -> e instanceof LivingEntity
                 );
 
                 for (Entity nearbyEntity : nearbyEntities) {
                     if (nearbyEntity instanceof LivingEntity targetEntity && nearbyEntity != mobEntity) {
-                        if (mobEntity.canTarget(targetEntity)) {
+                        if (mobEntity.canAttack(targetEntity)) {
                             mobEntity.setTarget(targetEntity);
                         }
                     }

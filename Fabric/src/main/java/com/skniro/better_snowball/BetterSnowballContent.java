@@ -2,7 +2,7 @@ package com.skniro.better_snowball;
 
 
 import com.skniro.better_snowball.item.BetterSnowballItems;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 
 
 public class BetterSnowballContent {
@@ -11,18 +11,18 @@ public class BetterSnowballContent {
     }
 
     public static void CreativeTab() {
-        ItemGroupEvents.modifyEntriesEvent(BetterSnowball.Better_Snowball_Group).register(content -> {
-            content.add(BetterSnowballItems.SNOWBALL_STONE);
-            content.add(BetterSnowballItems.SNOWBALL_Diamond);
-            content.add(BetterSnowballItems.SNOWBALL_Gold);
-            content.add(BetterSnowballItems.SNOWBALL_ICE);
-            content.add(BetterSnowballItems.SNOWBALL_IRON);
-            content.add(BetterSnowballItems.SNOWBALL_Compression);
-            content.add(BetterSnowballItems.SNOWBALL_Teleporting);
-            content.add(BetterSnowballItems.SNOWBALL_Confusion);
-            content.add(BetterSnowballItems.SNOWBALL_Instant_Health);
-            content.add(BetterSnowballItems.SNOWBALL_Poison);
-            content.add(BetterSnowballItems.SNOWBALL_Hostility);
+        CreativeModeTabEvents.modifyOutputEvent(BetterSnowball.Better_Snowball_Group).register(content -> {
+            content.accept(BetterSnowballItems.SNOWBALL_STONE);
+            content.accept(BetterSnowballItems.SNOWBALL_Diamond);
+            content.accept(BetterSnowballItems.SNOWBALL_Gold);
+            content.accept(BetterSnowballItems.SNOWBALL_ICE);
+            content.accept(BetterSnowballItems.SNOWBALL_IRON);
+            content.accept(BetterSnowballItems.SNOWBALL_Compression);
+            content.accept(BetterSnowballItems.SNOWBALL_Teleporting);
+            content.accept(BetterSnowballItems.SNOWBALL_Confusion);
+            content.accept(BetterSnowballItems.SNOWBALL_Instant_Health);
+            content.accept(BetterSnowballItems.SNOWBALL_Poison);
+            content.accept(BetterSnowballItems.SNOWBALL_Hostility);
         });
 
 

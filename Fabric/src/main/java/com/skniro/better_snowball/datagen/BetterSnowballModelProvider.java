@@ -2,33 +2,33 @@ package com.skniro.better_snowball.datagen;
 
 import com.skniro.better_snowball.item.BetterSnowballItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.Models;
-import net.minecraft.item.Items;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.world.item.Items;
 
 public class BetterSnowballModelProvider extends FabricModelProvider {
-    public BetterSnowballModelProvider(FabricDataOutput dataGenerator){
+    public BetterSnowballModelProvider(FabricPackOutput dataGenerator){
         super(dataGenerator);
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator){
+    public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator){
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_STONE, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Diamond, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Gold, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_ICE, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_IRON, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Compression, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Teleporting, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Confusion, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Instant_Health, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Hostility, Items.SNOWBALL, Models.GENERATED);
-        itemModelGenerator.registerWithTextureSource(BetterSnowballItems.SNOWBALL_Poison, Items.SNOWBALL, Models.GENERATED);
+    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_STONE, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Diamond, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Gold, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_ICE, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_IRON, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Compression, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Teleporting, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Confusion, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Instant_Health, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Hostility, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BetterSnowballItems.SNOWBALL_Poison, Items.SNOWBALL, ModelTemplates.FLAT_ITEM);
     }
 }
