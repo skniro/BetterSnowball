@@ -3,10 +3,7 @@ package com.skniro.better_snowball.entity.projectile.thrown;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityEvent;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
@@ -23,11 +20,11 @@ public class MapleSnowballEntity
     }
 
     public MapleSnowballEntity(Level world, LivingEntity owner, ItemStack stack) {
-        super(EntityType.SNOWBALL, owner, world, stack);
+        super(EntityTypes.SNOWBALL, owner, world, stack);
     }
 
     public MapleSnowballEntity(Level world, double x, double y, double z, ItemStack stack) {
-        super(EntityType.SNOWBALL, x, y, z, world, stack);
+        super(EntityTypes.SNOWBALL, x, y, z, world, stack);
     }
 
     @Override
