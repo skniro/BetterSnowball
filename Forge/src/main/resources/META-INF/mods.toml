@@ -9,9 +9,7 @@ version="${forge_mod_version}"
 displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
-updateJSONURL="https://raw.githubusercontent.com/skniro/maven3/main/com/skniro/BetterSnowball/update/forge.json" #optional
-displayURL="https://www.skniro.org"
-issueTrackerURL="https://github.com/skniro/BetterSnowball/issues"
+
 
 [[dependencies.better_snowball]]
 modId="forge"
